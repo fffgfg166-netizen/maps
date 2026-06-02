@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خرائط الكثافة السكانية - Density Maps</title>
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #0f172a, #1e293b);
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --accent-color: #38bdf8;
+            --text-main: #f8fafc;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+
+        body {
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            padding: 2rem;
+            min-height: 100vh;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .header h1 {
+            color: var(--accent-color);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .back-btn:hover {
+            color: #7dd3fc;
+        }
+
+        /* تنسيق شبكة العرض لـ 3 صور بالتساوي */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .image-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .image-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            border-color: var(--accent-color);
+        }
+
+        .image-container {
+            width: 100%;
+            height: 260px;
+            overflow: hidden;
+            background: #1e293b;
+        }
+
+        .image-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .image-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .image-info {
+            padding: 1.2rem;
+            text-align: center;
+            background: rgba(15, 23, 42, 0.8);
+        }
+
+        .image-info p {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .image-card {
+            animation: fadeIn 0.6s ease forwards;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <a href="welcome.html" class="back-btn">← العودة للوحة التحكم</a>
+        <h1>تحليلات خرائط الكثافة السكانية</h1>
+        <p>استعراض ديناميكي مريح للعين للبيانات الديموغرافية </p>
+    </div>
+
+    <div class="gallery-grid">
+        <!-- الصورة الأولى -->
+        <div class="image-card" style="animation-delay: 0.1s;">
+            <div class="image-container">
+                <img src="vvv/1.jpeg" alt="خريطة الكثافة 1" onerror="this.src='https://via.placeholder.com/400x300/1e293b/38bdf8?text=Density+Map+1'">
+            </div>
+            <div class="image-info"></div>
+        </div>
+
+        <!-- الصورة الثانية -->
+        <div class="image-card" style="animation-delay: 0.2s;">
+            <div class="image-container">
+                <img src="vvv/2.jpeg" alt="خريطة الكثافة 2" onerror="this.src='https://via.placeholder.com/400x300/1e293b/38bdf8?text=Density+Map+2'">
+            </div>
+            <div class="image-info"></div>
+        </div>
+
+        <!-- الصورة الثالث -->
+        <div class="image-card" style="animation-delay: 0.3s;">
+            <div class="image-container">
+                <img src="vvv/3.jpeg" alt="خريطة الكثافة 3" onerror="this.src='https://via.placeholder.com/400x300/1e293b/38bdf8?text=Density+Map+3'">
+            </div>
+            <div class="image-info"></div>
+        </div>
+    </div>
+
+</body>
+</html>

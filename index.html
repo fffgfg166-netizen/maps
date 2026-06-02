@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مرحباً بكم إلى عالم الخرائط الجغرافية</title>
+    <style>
+        /* ثيم ديناميكي بألوان مريحة للعين */
+        :root {
+            --bg-gradient: linear-gradient(135deg, #0f172a, #1e293b);
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-color: #38bdf8;
+            --accent-hover: #7dd3fc;
+            --input-bg: #334155;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-main);
+            overflow-x: hidden;
+            position: relative;
+            padding: 20px;
+        }
+
+        /* تنسيق صور الجزء العلوي */
+        .top-image {
+            position: absolute;
+            top: 20px;
+            max-height: 80px; /* حجم مناسب ومريح للعين */
+            width: auto;
+            object-fit: contain;
+            z-index: 10;
+        }
+
+        /* صورة الشعار في الأعلى الأيمن */
+        .logo-right {
+            right: 20px;
+        }
+
+        /* صورة المعرض/الأشكال في الأعلى الأيسر */
+        .image-left {
+            left: 20px;
+        }
+
+        /* خلفية ديناميكية متحركة بشكل ناعم */
+        body::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(56, 189, 248, 0.15);
+            border-radius: 50%;
+            top: 10%;
+            left: 10%;
+            filter: blur(80px);
+            animation: float 8s infinite alternate;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(30px); }
+        }
+
+        .login-container {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            width: 100%;
+            max-width: 450px;
+            z-index: 1;
+            margin-top: 60px; /* لإعطاء مساحة تحت الصور في الشاشات الصغيرة */
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--text-main);
+            font-size: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        input[type="email"],
+        input[type="password"],
+        input[type="text"] {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            border: 1px solid transparent;
+            background-color: var(--input-bg);
+            color: var(--text-main);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+        }
+
+        /* خيار إظهار كلمة المرور فوق الحقل */
+        .show-password-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            justify-content: flex-start;
+        }
+
+        .show-password-container input {
+            cursor: pointer;
+            accent-color: var(--accent-color);
+        }
+
+        .show-password-container label {
+            margin-bottom: 0;
+            cursor: pointer;
+            font-size: 0.85rem;
+            color: var(--accent-color);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: var(--accent-color);
+            color: #0f172a;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .btn-submit:active {
+            transform: scale(0.98);
+        }
+
+        /* رابط المطور المتحرك المتناسق مع الثيم والملائم للواتساب */
+        .developer-link {
+            margin-top: 2rem;
+            z-index: 1;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            display: inline-block;
+            position: relative;
+            animation: bounce 3s infinite ease-in-out;
+            transition: color 0.3s ease;
+        }
+
+        .developer-link:hover {
+            color: var(--text-main);
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-10px) scale(1.05); }
+        }
+
+        /* تحسينات الشاشات الصغيرة لتفادي تداخل الصور المرتفعة */
+        @media (max-width: 576px) {
+            .top-image {
+                max-height: 50px;
+                top: 10px;
+            }
+            .logo-right { right: 10px; }
+            .image-left { left: 10px; }
+            .login-container { margin-top: 80px; }
+        }
+    </style>
+</head>
+<body>
+
+    <img src="logo.jpg" alt="Logo" class="top-image logo-right" onerror="this.style.display='none'">
+
+    <img src="images.jfif" alt="Images" class="top-image image-left" onerror="this.style.display='none'">
+
+    <div class="login-container">
+        <h2>مرحباً بكم إلى عالم الخرائط الجغرافية</h2>
+        
+        <form action="welcome.html" method="GET">
+            
+            <div class="input-group">
+                <label for="username">اسم المستخدم</label>
+                <input type="email" id="username" name="username" value="qena74@gmail.com" required>
+            </div>
+
+            <div class="input-group">
+                <div class="show-password-container">
+                    <input type="checkbox" id="togglePassword">
+                    <label for="togglePassword">إظهار كلمة المرور</label>
+                </div>
+                <input type="password" id="password" name="password" value="tftftfytytf" required>
+            </div>
+
+            <button type="submit" class="btn-submit">دخول</button>
+        </form>
+    </div>
+
+    <a href="https://wa.me/201067579526" target="_blank" class="developer-link">المطور: AHMED WAEL SAAD</a>
+
+    <script>
+        // كود جافاسكريبت لجعل كلمة المرور مرئية عند الضغط على زر التفعيل
+        const togglePassword = document.querySelector('#togglePassword');
+        const passwordInput = document.querySelector('#password');
+
+        togglePassword.addEventListener('change', function () {
+            if (this.checked) {
+                passwordInput.type = 'text';
+            } else {
+                passwordInput.type = 'password';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الخرائط الحرارية - Heatmaps</title>
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #0f172a, #1e293b);
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --accent-color: #38bdf8;
+            --text-main: #f8fafc;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+
+        body {
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            padding: 2rem;
+            min-height: 100vh;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .header h1 {
+            color: var(--accent-color);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .back-btn:hover {
+            color: #7dd3fc;
+        }
+
+        /* شبكة عرض صور الخرائط الحرارية */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .image-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0; /* تبدأ مخفية لتأثير الـ fadeIn */
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .image-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            border-color: var(--accent-color);
+        }
+
+        .image-container {
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+            background: #1e293b;
+        }
+
+        .image-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .image-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .image-info {
+            padding: 1.2rem;
+            text-align: center;
+            background: rgba(15, 23, 42, 0.8);
+        }
+
+        .image-info p {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .image-card {
+            animation: fadeIn 0.6s ease forwards;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <a href="welcome.html" class="back-btn">← العودة للوحة التحكم</a>
+        <h1>مركز الخرائط الحرارية (Heatmaps)</h1>
+        <p>عرض تحليلي ديناميكي مستدعى من مجلد  </p>
+    </div>
+
+    <div class="gallery-grid">
+        <div class="image-card" style="animation-delay: 0.1s;">
+            <div class="image-container">
+                <img src="nnn/1.jpeg" alt="خريطة حرارية 1" onerror="this.src='https://via.placeholder.com/400x300/1e293b/38bdf8?text=Heatmap+1+Missing'">
+            </div>
+            <div class="image-info"><p>تحليل الكثافة الحرارية الأول</p></div>
+        </div>
+
+        <div class="image-card" style="animation-delay: 0.2s;">
+            <div class="image-container">
+                <img src="nnn/2.jpeg" alt="خريطة حرارية 2" onerror="this.src='https://via.placeholder.com/400x300/1e293b/38bdf8?text=Heatmap+2+Missing'">
+            </div>
+            <div class="image-info"><p>تحليل الكثافة الحرارية الثاني</p></div>
+        </div>
+
+        <div class="image-card" style="animation-delay: 0.3s;">
+            <div class="image-container">
+                <img src="nnn/3.jpeg" alt="خريطة حرارية 3" onerror="this.src='https://via.placeholder.com/400x300/1e293b/38bdf8?text=Heatmap+3+Missing'">
+            </div>
+            <div class="image-info"><p>تحليل الكثافة الحرارية الثالث</p></div>
+        </div>
+
+        <div class="image-card" style="animation-delay: 0.4s;">
+            <div class="image-container">
+                <img src="nnn/4.jpeg" alt="خريطة حرارية 4" onerror="this.src='https://via.placeholder.com/400x300/1e293b/38bdf8?text=Heatmap+4+Missing'">
+            </div>
+            <div class="image-info"><p>تحليل الكثافة الحرارية الرابع</p></div>
+        </div>
+
+        <div class="image-card" style="animation-delay: 0.5s;">
+            <div class="image-container">
+                <img src="nnn/5.jpeg" alt="خريطة حرارية 5" onerror="this.src='https://via.placeholder.com/400x300/1e293b/38bdf8?text=Heatmap+5+Missing'">
+            </div>
+            <div class="image-info"><p>تحليل الكثافة الحرارية الخامس</p></div>
+        </div>
+
+        <div class="image-card" style="animation-delay: 0.6s;">
+            <div class="image-container">
+                <img src="nnn/6.jpeg" alt="خريطة حرارية 6" onerror="this.src='https://via.placeholder.com/400x300/1e293b/38bdf8?text=Heatmap+6+Missing'">
+            </div>
+            <div class="image-info"><p>تحليل الكثافة الحرارية السادس</p></div>
+        </div>
+
+        <div class="image-card" style="animation-delay: 0.7s;">
+            <div class="image-container">
+                <img src="nnn/7.jpeg" alt="خريطة حرارية 7" onerror="this.src='https://via.placeholder.com/400x300/1e293b/38bdf8?text=Heatmap+7+Missing'">
+            </div>
+            <div class="image-info"><p>تحليل الكثافة الحرارية السابع</p></div>
+        </div>
+
+        <div class="image-card" style="animation-delay: 0.8s;">
+            <div class="image-container">
+                <img src="nnn/8.jpeg" alt="خريطة حرارية 8" onerror="this.src='https://via.placeholder.com/400x300/1e293b/38bdf8?text=Heatmap+8+Missing'">
+            </div>
+            <div class="image-info"><p>تحليل الكثافة الحرارية الثامن</p></div>
+        </div>
+
+        <div class="image-card" style="animation-delay: 0.9s;">
+            <div class="image-container">
+                <img src="nnn/9.jpeg" alt="خريطة حرارية 9" onerror="this.src='https://via.placeholder.com/400x300/1e293b/38bdf8?text=Heatmap+9+Missing'">
+            </div>
+            <div class="image-info"><p>تحليل الكثافة الحرارية التاسع</p></div>
+        </div>
+    </div>
+
+</body>
+</html>
